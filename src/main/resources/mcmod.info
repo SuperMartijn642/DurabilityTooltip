@@ -1,0 +1,18 @@
+[
+  {
+    "modid": "durabilitytooltip",
+    "name": "Durability Tooltip",
+    "description": "Durability Tooltip shows you the durability of an item!",
+    "version": "${version}",
+    "mcversion": "${mcversion}",
+    "url": "",
+    "updateUrl": "",
+    "authorList": [
+      "SuperMartijn642"
+    ],
+    "credits": "",
+    "logoFile": "durabilitytooltip.png",
+    "screenshots": [],
+    "dependencies": []
+  }
+]
