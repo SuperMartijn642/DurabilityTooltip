@@ -1,9 +1,9 @@
 package com.supermartijn642.durabilitytooltip;
 
-import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.StringTextComponent;
-import net.minecraft.util.text.TextFormatting;
-import net.minecraft.util.text.TranslationTextComponent;
+import net.minecraft.ChatFormatting;
+import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.TextComponent;
+import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,12 +18,12 @@ public class ClientProxy {
     @SubscribeEvent
     public static void onItemTooltip(ItemTooltipEvent e){
         if(e.getItemStack().getItem().getRegistryName().getNamespace().equals("minecraft") && e.getItemStack().isDamageableItem() && !e.getFlags().isAdvanced()){
-            ITextComponent durability = new StringTextComponent(Integer.toString(e.getItemStack().getMaxDamage())).withStyle(TextFormatting.GOLD);
+            Component durability = new TextComponent(Integer.toString(e.getItemStack().getMaxDamage())).withStyle(ChatFormatting.GOLD);
             if(e.getItemStack().isDamaged()){
-                ITextComponent remainingDurability = new StringTextComponent(Integer.toString(e.getItemStack().getMaxDamage() - e.getItemStack().getDamageValue())).withStyle(TextFormatting.GOLD);
-                e.getToolTip().add(new TranslationTextComponent("durabilitytooltip.info.damaged", remainingDurability, durability).withStyle(TextFormatting.GRAY));
+                Component remainingDurability = new TextComponent(Integer.toString(e.getItemStack().getMaxDamage() - e.getItemStack().getDamageValue())).withStyle(ChatFormatting.GOLD);
+                e.getToolTip().add(new TranslatableComponent("durabilitytooltip.info.damaged", remainingDurability, durability).withStyle(ChatFormatting.GRAY));
             }else
-                e.getToolTip().add(new TranslationTextComponent("durabilitytooltip.info.durability", durability).withStyle(TextFormatting.GRAY));
+                e.getToolTip().add(new TranslatableComponent("durabilitytooltip.info.durability", durability).withStyle(ChatFormatting.GRAY));
         }
     }
 }

@@ -1,10 +1,9 @@
 package com.supermartijn642.durabilitytooltip;
 
-import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.IExtensionPoint;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.network.FMLNetworkConstants;
-import org.apache.commons.lang3.tuple.Pair;
+import net.minecraftforge.fmllegacy.network.FMLNetworkConstants;
 
 /**
  * Created 7/7/2020 by SuperMartijn642
@@ -13,6 +12,6 @@ import org.apache.commons.lang3.tuple.Pair;
 public class DurabilityTooltip {
 
     public DurabilityTooltip(){
-        ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, () -> Pair.of(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> true));
+        ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> b));
     }
 }
