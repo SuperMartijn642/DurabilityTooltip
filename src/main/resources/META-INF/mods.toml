@@ -48,6 +48,6 @@ description='''Durability Tooltip shows you the durability of an item!'''
 [[dependencies.durabilitytooltip]]
     modId="minecraft"
     mandatory=true
-    versionRange="[1.15,1.16)"
+    versionRange="[1.14,1.15)"
     ordering="NONE"
     side="BOTH"
