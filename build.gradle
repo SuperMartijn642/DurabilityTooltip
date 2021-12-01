@@ -81,6 +81,9 @@ repositories {
 dependencies {
     minecraft 'net.minecraftforge:forge:1.16.5-36.2.0'
 
+    // Config Lib
+    implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413938')
+
     // Just Enough Items
     runtimeOnly fg.deobf('curse.maven:jei-238222:3373521')
     // Block Renderer
