@@ -80,4 +80,7 @@ repositories {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.15.2-31.2.55'
+
+    // Config Lib
+    implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413935')
 }
