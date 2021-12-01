@@ -60,6 +60,9 @@ repositories {
 
 dependencies {
     minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2855'
+
+    // Config Lib
+    implementation fg.deobf('curse.maven:supermartijn642s-config-lib-438332:3413933')
 }
 
 sourceSets {
