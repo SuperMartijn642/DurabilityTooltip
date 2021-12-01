@@ -13,5 +13,6 @@ public class DurabilityTooltip {
 
     public DurabilityTooltip(){
         ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> b));
+        DurabilityTooltipConfig.init();
     }
 }
