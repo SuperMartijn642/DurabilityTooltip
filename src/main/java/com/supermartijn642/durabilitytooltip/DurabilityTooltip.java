@@ -12,5 +12,6 @@ public class DurabilityTooltip {
 
     public DurabilityTooltip(){
         ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> "IGNORESERVERONLY", (a, b) -> b));
+        DurabilityTooltipConfig.init();
     }
 }
