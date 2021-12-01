@@ -17,7 +17,7 @@ public class ClientProxy {
 
     @SubscribeEvent
     public static void onItemTooltip(ItemTooltipEvent e){
-        if(e.getItemStack().getItem().getRegistryName().getNamespace().equals("minecraft") && e.getItemStack().isDamageableItem() && !e.getFlags().isAdvanced()){
+        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || e.getItemStack().getItem().getRegistryName().getNamespace().equals("minecraft")) && e.getItemStack().isDamageableItem() && !e.getFlags().isAdvanced()){
             ITextComponent durability = new StringTextComponent(Integer.toString(e.getItemStack().getMaxDamage())).withStyle(TextFormatting.GOLD);
             if(e.getItemStack().isDamaged()){
                 ITextComponent remainingDurability = new StringTextComponent(Integer.toString(e.getItemStack().getMaxDamage() - e.getItemStack().getDamageValue())).withStyle(TextFormatting.GOLD);
