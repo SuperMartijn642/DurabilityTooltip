@@ -1,9 +1,5 @@
 package com.supermartijn642.durabilitytooltip;
 
-import net.minecraft.ChatFormatting;
-import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.TextComponent;
-import net.minecraft.network.chat.TranslatableComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -18,12 +14,9 @@ public class ClientProxy {
     @SubscribeEvent
     public static void onItemTooltip(ItemTooltipEvent e){
         if((!DurabilityTooltipConfig.onlyVanillaTools.get() || e.getItemStack().getItem().getRegistryName().getNamespace().equals("minecraft")) && e.getItemStack().isDamageableItem() && !e.getFlags().isAdvanced()){
-            Component durability = new TextComponent(Integer.toString(e.getItemStack().getMaxDamage())).withStyle(ChatFormatting.GOLD);
-            if(e.getItemStack().isDamaged()){
-                Component remainingDurability = new TextComponent(Integer.toString(e.getItemStack().getMaxDamage() - e.getItemStack().getDamageValue())).withStyle(ChatFormatting.GOLD);
-                e.getToolTip().add(new TranslatableComponent("durabilitytooltip.info.damaged", remainingDurability, durability).withStyle(ChatFormatting.GRAY));
-            }else
-                e.getToolTip().add(new TranslatableComponent("durabilitytooltip.info.durability", durability).withStyle(ChatFormatting.GRAY));
+            int maxDurability = e.getItemStack().getMaxDamage();
+            int durability = maxDurability - e.getItemStack().getDamageValue();
+            DurabilityTooltipConfig.tooltipStyle.get().appendTooltip(e.getToolTip(), durability, maxDurability);
         }
     }
 }
