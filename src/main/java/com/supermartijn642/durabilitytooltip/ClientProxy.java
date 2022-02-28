@@ -13,7 +13,7 @@ public class ClientProxy {
 
     @SubscribeEvent
     public static void onItemTooltip(ItemTooltipEvent e){
-        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || e.getItemStack().getItem().getRegistryName().getResourceDomain().equals("minecraft")) && e.getItemStack().isItemStackDamageable() && !e.getFlags().isAdvanced()){
+        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || e.getItemStack().getItem().getRegistryName().getResourceDomain().equals("minecraft")) && e.getItemStack().isItemStackDamageable() && (!e.getFlags().isAdvanced() || !e.getItemStack().isItemDamaged())){
             int maxDurability = e.getItemStack().getMaxDamage();
             int durability = maxDurability - e.getItemStack().getItemDamage();
             DurabilityTooltipConfig.tooltipStyle.get().appendTooltip(e.getToolTip(), durability, maxDurability);
