@@ -1,0 +1,14 @@
+{
+  "durabilitytooltip.info.bar.durability_hint": "耐久度：",
+  "durabilitytooltip.info.bar.bar_line": "[%s]",
+  "durabilitytooltip.info.bar.full_symbol": "█",
+  "durabilitytooltip.info.bar.empty_symbol": "▒",
+  "durabilitytooltip.info.numbers.durability_hint": "耐久度：%s",
+  "durabilitytooltip.info.numbers.full_durability": "%d",
+  "durabilitytooltip.info.numbers.damaged": "%1$d / %2$d",
+  "durabilitytooltip.info.text.durability_hint": "耐久度：%s",
+  "durabilitytooltip.info.text.full_durability": "毫发无损",
+  "durabilitytooltip.info.text.damaged": "轻微受损",
+  "durabilitytooltip.info.text.severely_damaged": "严重损坏",
+  "durabilitytooltip.info.text.nearly_broken": "濒临破碎"
+}
