@@ -161,4 +161,6 @@ modrinth {
 task publishAll {
     group "publishing"
     dependsOn("curseforge", "modrinth")
+    // Also build the file so I have a copy locally
+    dependsOn "build"
 }
