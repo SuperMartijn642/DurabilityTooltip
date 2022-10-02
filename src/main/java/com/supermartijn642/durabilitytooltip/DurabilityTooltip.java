@@ -10,8 +10,8 @@ public class DurabilityTooltip {
 
     public static final String MODID = "durabilitytooltip";
     public static final String NAME = "Durability Tooltip";
-    public static final String VERSION = "1.1.3";
-    public static final String DEPENDENCIES = "required-after:supermartijn642configlib@[1.0.9,)";
+    public static final String VERSION = "1.1.4";
+    public static final String DEPENDENCIES = "required-after:supermartijn642configlib@[1.1.6,)";
 
     public DurabilityTooltip(){
         DurabilityTooltipConfig.init();
