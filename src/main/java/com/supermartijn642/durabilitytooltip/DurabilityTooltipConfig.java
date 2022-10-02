@@ -1,7 +1,7 @@
 package com.supermartijn642.durabilitytooltip;
 
-import com.supermartijn642.configlib.ModConfig;
-import com.supermartijn642.configlib.ModConfigBuilder;
+import com.supermartijn642.configlib.api.ConfigBuilders;
+import com.supermartijn642.configlib.api.IConfigBuilder;
 import net.minecraft.util.text.TextFormatting;
 
 import java.util.function.Supplier;
@@ -18,7 +18,7 @@ public class DurabilityTooltipConfig {
     public static final Supplier<Boolean> onlyVanillaTools;
 
     static{
-        ModConfigBuilder builder = new ModConfigBuilder("durabilitytooltip", ModConfig.Type.CLIENT);
+        IConfigBuilder builder = ConfigBuilders.newTomlConfig("durabilitytooltip", null, false);
 
         builder.push("Client");
         tooltipStyle = builder.dontSync().comment("What should be the style of the tooltip? 'numbers' means 'Durability: 30 / 100', 'text' means 'Durability: pristine/slight damaged/nearly broken', 'bar' means 'Durability: [███▒▒▒▒▒▒▒]'").define("tooltipStyle", TooltipStyle.NUMBERS);
@@ -34,5 +34,4 @@ public class DurabilityTooltipConfig {
     public static void init(){
         // Place this here so the class gets loaded
     }
-
 }
