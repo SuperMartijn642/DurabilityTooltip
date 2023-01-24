@@ -1,18 +1,14 @@
 package com.supermartijn642.durabilitytooltip;
 
-import net.minecraftforge.fml.IExtensionPoint;
-import net.minecraftforge.fml.ModLoadingContext;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.network.NetworkConstants;
+import net.fabricmc.api.ModInitializer;
 
 /**
  * Created 7/7/2020 by SuperMartijn642
  */
-@Mod("durabilitytooltip")
-public class DurabilityTooltip {
+public class DurabilityTooltip implements ModInitializer {
 
-    public DurabilityTooltip(){
-        ModLoadingContext.get().registerExtensionPoint(IExtensionPoint.DisplayTest.class, () -> new IExtensionPoint.DisplayTest(() -> NetworkConstants.IGNORESERVERONLY, (a, b) -> b));
+    @Override
+    public void onInitialize(){
         DurabilityTooltipConfig.init();
     }
 }
