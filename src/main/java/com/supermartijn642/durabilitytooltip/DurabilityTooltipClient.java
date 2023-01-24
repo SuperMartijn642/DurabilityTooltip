@@ -2,7 +2,7 @@ package com.supermartijn642.durabilitytooltip;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
-import net.minecraft.core.Registry;
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
@@ -20,7 +20,7 @@ public class DurabilityTooltipClient implements ClientModInitializer {
     }
 
     public static void onItemTooltip(ItemStack stack, TooltipFlag flag, List<Component> lines){
-        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || Registry.ITEM.getKey(stack.getItem()).getNamespace().equals("minecraft")) && stack.isDamageableItem() && (!flag.isAdvanced() || !stack.isDamaged())){
+        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || BuiltInRegistries.ITEM.getKey(stack.getItem()).getNamespace().equals("minecraft")) && stack.isDamageableItem() && (!flag.isAdvanced() || !stack.isDamaged())){
             int maxDurability = stack.getMaxDamage();
             int durability = maxDurability - stack.getDamageValue();
             DurabilityTooltipConfig.tooltipStyle.get().appendTooltip(lines, durability, maxDurability);
