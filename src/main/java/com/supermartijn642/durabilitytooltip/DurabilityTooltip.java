@@ -1,5 +1,6 @@
 package com.supermartijn642.durabilitytooltip;
 
+import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.fml.common.Mod;
 
 /**
@@ -14,6 +15,7 @@ public class DurabilityTooltip {
     public static final String DEPENDENCIES = "required-after:supermartijn642configlib@[1.1.6,)";
 
     public DurabilityTooltip(){
-        DurabilityTooltipConfig.init();
+        if(Loader.isModLoaded("supermartijn642configlib"))
+            DurabilityTooltipConfig.init();
     }
 }
