@@ -1,6 +1,7 @@
 package com.supermartijn642.durabilitytooltip;
 
 import net.minecraftforge.fml.ExtensionPoint;
+import net.minecraftforge.fml.ModList;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.network.FMLNetworkConstants;
@@ -14,6 +15,7 @@ public class DurabilityTooltip {
 
     public DurabilityTooltip(){
         ModLoadingContext.get().registerExtensionPoint(ExtensionPoint.DISPLAYTEST, () -> Pair.of(() -> FMLNetworkConstants.IGNORESERVERONLY, (a, b) -> true));
-        DurabilityTooltipConfig.init();
+        if(ModList.get().isLoaded("supermartijn642configlib"))
+            DurabilityTooltipConfig.init();
     }
 }
