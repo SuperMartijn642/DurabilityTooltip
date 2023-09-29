@@ -2,7 +2,7 @@ package com.supermartijn642.durabilitytooltip;
 
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.client.item.v1.ItemTooltipCallback;
-import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.core.Registry;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -24,10 +24,10 @@ public class DurabilityTooltipClient implements ClientModInitializer {
     }
 
     private static String lastBlackListConfig = "";
-    private static Set<String> blackListedMods = new HashSet<>();
+    private static final Set<String> blackListedMods = new HashSet<>();
 
     public static boolean isBlackListed(Item item){
-        String owningMod = BuiltInRegistries.ITEM.getKey(item).getNamespace();
+        String owningMod = Registry.ITEM.getKey(item).getNamespace();
 
         // Update the list of blacklisted mods
         if(!DurabilityTooltipConfig.blackListedMods.get().equals(lastBlackListConfig)){
@@ -48,7 +48,7 @@ public class DurabilityTooltipClient implements ClientModInitializer {
     }
 
     public static void onItemTooltip(ItemStack stack, TooltipFlag flag, List<Component> lines){
-        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || BuiltInRegistries.ITEM.getKey(stack.getItem()).getNamespace().equals("minecraft"))
+        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || Registry.ITEM.getKey(stack.getItem()).getNamespace().equals("minecraft"))
             && !isBlackListed(stack.getItem())
             && (DurabilityTooltipConfig.showWhenFull.get() || stack.isDamaged())
             && stack.isDamageableItem() && (!flag.isAdvanced() || !stack.isDamaged())){
