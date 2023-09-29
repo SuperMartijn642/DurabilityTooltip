@@ -24,7 +24,7 @@ public class DurabilityTooltipClient implements ClientModInitializer {
     }
 
     private static String lastBlackListConfig = "";
-    private static Set<String> blackListedMods = new HashSet<>();
+    private static final Set<String> blackListedMods = new HashSet<>();
 
     public static boolean isBlackListed(Item item){
         String owningMod = BuiltInRegistries.ITEM.getKey(item).getNamespace();
