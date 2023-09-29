@@ -1,3 +1,6 @@
+### Durability Tooltip 1.1.5a
+- Fixed crash with Minecraft 1.19.2
+
 ### Durability Tooltip 1.1.5
 - Added a config option to blacklist items from certain mods
 - Added a config option to hide the durability tooltip when an item is not damaged
