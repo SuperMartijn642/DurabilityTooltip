@@ -1,12 +1,12 @@
 package com.supermartijn642.durabilitytooltip;
 
+import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Item;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.registries.ForgeRegistries;
+import net.neoforged.api.distmarker.Dist;
+import net.neoforged.bus.api.EventPriority;
+import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.Mod;
+import net.neoforged.neoforge.event.entity.player.ItemTooltipEvent;
 
 import java.util.Arrays;
 import java.util.HashSet;
@@ -22,7 +22,7 @@ public class DurabilityTooltipClient {
     private static Set<String> blackListedMods = new HashSet<>();
 
     public static boolean isBlackListed(Item item){
-        String owningMod = ForgeRegistries.ITEMS.getKey(item).getNamespace();
+        String owningMod = BuiltInRegistries.ITEM.getKey(item).getNamespace();
 
         // Update the list of blacklisted mods
         if(!DurabilityTooltipConfig.blackListedMods.get().equals(lastBlackListConfig)){
@@ -44,7 +44,7 @@ public class DurabilityTooltipClient {
 
     @SubscribeEvent(priority = EventPriority.LOW)
     public static void onItemTooltip(ItemTooltipEvent e){
-        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || ForgeRegistries.ITEMS.getKey(e.getItemStack().getItem()).getNamespace().equals("minecraft"))
+        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || BuiltInRegistries.ITEM.getKey(e.getItemStack().getItem()).getNamespace().equals("minecraft"))
             && !isBlackListed(e.getItemStack().getItem())
             && (DurabilityTooltipConfig.showWhenFull.get() || e.getItemStack().isDamaged())
             && e.getItemStack().isDamageableItem() && (!e.getFlags().isAdvanced() || !e.getItemStack().isDamaged())){
