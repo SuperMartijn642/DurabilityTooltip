@@ -3,8 +3,8 @@ package com.supermartijn642.durabilitytooltip;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
-import net.minecraftforge.eventbus.api.EventPriority;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.eventbus.api.listener.Priority;
+import net.minecraftforge.eventbus.api.listener.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.registries.ForgeRegistries;
 
@@ -42,7 +42,7 @@ public class DurabilityTooltipClient {
         return blackListedMods.contains(owningMod);
     }
 
-    @SubscribeEvent(priority = EventPriority.LOW)
+    @SubscribeEvent(priority = Priority.LOW)
     public static void onItemTooltip(ItemTooltipEvent e){
         if((!DurabilityTooltipConfig.onlyVanillaTools.get() || ForgeRegistries.ITEMS.getKey(e.getItemStack().getItem()).getNamespace().equals("minecraft"))
             && !isBlackListed(e.getItemStack().getItem())
