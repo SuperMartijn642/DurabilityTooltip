@@ -1,0 +1,14 @@
+{
+  "durabilitytooltip.info.bar.durability_hint": "耐久値：",
+  "durabilitytooltip.info.bar.bar_line": "[%s]",
+  "durabilitytooltip.info.bar.full_symbol": "█",
+  "durabilitytooltip.info.bar.empty_symbol": "▒",
+  "durabilitytooltip.info.numbers.durability_hint": "耐久値：%s",
+  "durabilitytooltip.info.numbers.full_durability": "%d",
+  "durabilitytooltip.info.numbers.damaged": "%1$d / %2$d",
+  "durabilitytooltip.info.text.durability_hint": "耐久値：%s",
+  "durabilitytooltip.info.text.full_durability": "新品",
+  "durabilitytooltip.info.text.damaged": "少し傷ついている",
+  "durabilitytooltip.info.text.severely_damaged": "かなり傷ついている",
+  "durabilitytooltip.info.text.nearly_broken": "壊れかけ"
+}
