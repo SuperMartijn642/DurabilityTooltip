@@ -1,3 +1,6 @@
+### Durability Tooltip 1.1.6a
+- Fixed Forge dependency being too high for Minecraft 1.19 - 1.19.3
+
 ### Durability Tooltip 1.1.6
 - Added Argentinian Spanish translations (thanks to Texaliuz!)
 - Added European Portuguese translations (thanks to WingFrosty!)
