@@ -17,6 +17,7 @@ public class DurabilityTooltipConfig {
     public static final Supplier<TextFormatting> baseTooltipColor;
     public static final Supplier<Boolean> onlyVanillaTools;
     public static final Supplier<Boolean> showWhenFull;
+    public static final Supplier<Boolean> showWhenBroken;
     public static final Supplier<String> blackListedMods;
 
     static{
@@ -29,6 +30,7 @@ public class DurabilityTooltipConfig {
         baseTooltipColor = builder.dontSync().comment("What should be the base text color of the tooltip?").define("baseTooltipColor", TextFormatting.GRAY);
         onlyVanillaTools = builder.dontSync().comment("Should the durability tooltip only be shown on vanilla tools?").define("onlyVanillaTools", false);
         showWhenFull = builder.dontSync().comment("Should the durability tooltip be shown when a tool is not damaged?").define("showWhenFull", true);
+        showWhenBroken = builder.dontSync().comment("Should the durability tooltip be shown when a tool is broken, i.e. 0 durability? Only relevant for mods that allow items to have 0 durability.").define("showWhenBroken", true);
         blackListedMods = builder.dontSync().comment("Which mods should be blacklisted? Items from blacklisted mods won't show the durability tooltip.").define("blackListedMods", "tconstruct,supplementaries", 0, 100);
         builder.pop();
 

@@ -1,6 +1,8 @@
 package com.supermartijn642.durabilitytooltip;
 
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.event.entity.player.ItemTooltipEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.EventPriority;
@@ -10,6 +12,7 @@ import net.minecraftforge.fml.relauncher.Side;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 /**
@@ -44,13 +47,17 @@ public class DurabilityTooltipClient {
 
     @SubscribeEvent(priority = EventPriority.LOW)
     public static void onItemTooltip(ItemTooltipEvent e){
-        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || ForgeRegistries.ITEMS.getKey(e.getItemStack().getItem()).getResourceDomain().equals("minecraft"))
-            && !isBlackListed(e.getItemStack().getItem())
-            && (DurabilityTooltipConfig.showWhenFull.get() || e.getItemStack().isItemDamaged())
-            && e.getItemStack().isItemStackDamageable() && (!e.getFlags().isAdvanced() || !e.getItemStack().isItemDamaged())){
-            int maxDurability = e.getItemStack().getMaxDamage();
-            int durability = maxDurability - e.getItemStack().getItemDamage();
-            DurabilityTooltipConfig.tooltipStyle.get().appendTooltip(e.getToolTip(), durability, maxDurability);
+        ItemStack stack = e.getItemStack();
+        ITooltipFlag flag = e.getFlags();
+        List<String> lines = e.getToolTip();
+        if((!DurabilityTooltipConfig.onlyVanillaTools.get() || ForgeRegistries.ITEMS.getKey(stack.getItem()).getResourceDomain().equals("minecraft"))
+            && !isBlackListed(stack.getItem())
+            && (DurabilityTooltipConfig.showWhenFull.get() || stack.isItemDamaged())
+            && stack.isItemStackDamageable() && (!flag.isAdvanced() || !stack.isItemDamaged())){
+            int maxDurability = stack.getMaxDamage();
+            int durability = maxDurability - stack.getItemDamage();
+            if(DurabilityTooltipConfig.showWhenBroken.get() || durability > 0)
+                DurabilityTooltipConfig.tooltipStyle.get().appendTooltip(lines, durability, maxDurability);
         }
     }
 }
