@@ -54,7 +54,8 @@ public class DurabilityTooltipClient implements ClientModInitializer {
             && stack.isDamageableItem() && (!flag.isAdvanced() || !stack.isDamaged())){
             int maxDurability = stack.getMaxDamage();
             int durability = maxDurability - stack.getDamageValue();
-            DurabilityTooltipConfig.tooltipStyle.get().appendTooltip(lines, durability, maxDurability);
+            if(DurabilityTooltipConfig.showWhenBroken.get() || durability > 0)
+                DurabilityTooltipConfig.tooltipStyle.get().appendTooltip(lines, durability, maxDurability);
         }
     }
 }
