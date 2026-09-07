@@ -49,7 +49,8 @@ public enum TooltipStyle {
                 String translationKey = durability == maxDurability ? "durabilitytooltip.info.text.full_durability"
                     : durability >= 0.4f * maxDurability ? "durabilitytooltip.info.text.damaged"
                     : durability >= 0.1f * maxDurability ? "durabilitytooltip.info.text.severely_damaged"
-                    : "durabilitytooltip.info.text.nearly_broken";
+                    : durability > 0 ? "durabilitytooltip.info.text.nearly_broken"
+                    : "durabilitytooltip.info.text.broken";
                 Component tooltip = new TranslatableComponent(translationKey).withStyle(reactiveColor);
                 if(showTooltipHint)
                     tooltip = new TranslatableComponent("durabilitytooltip.info.text.durability_hint", tooltip).withStyle(baseColor);
