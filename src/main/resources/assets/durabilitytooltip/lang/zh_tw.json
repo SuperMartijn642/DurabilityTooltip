@@ -10,5 +10,6 @@
   "durabilitytooltip.info.text.full_durability": "全新",
   "durabilitytooltip.info.text.damaged": "輕微損壞",
   "durabilitytooltip.info.text.severely_damaged": "嚴重損壞",
-  "durabilitytooltip.info.text.nearly_broken": "即將損壞"
+  "durabilitytooltip.info.text.nearly_broken": "即將損壞",
+  "durabilitytooltip.info.text.broken": "已損壞"
 }
