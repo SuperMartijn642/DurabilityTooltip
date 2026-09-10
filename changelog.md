@@ -1,3 +1,5 @@
+## Update to Minecraft 26.3
+
 ### Durability Tooltip 1.2.0
 - Items with a durability of 0 will now show so properly, useful for mods that allow for broken tools
   - Added config option to disable showing tooltip when durability is 0
