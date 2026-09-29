@@ -1,3 +1,6 @@
+### Durability Tooltip 1.2.0a
+- Fixed "Error reading pack metadata" warning
+
 ## Update to Minecraft 26.3
 
 ### Durability Tooltip 1.2.0
